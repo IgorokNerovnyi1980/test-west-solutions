@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import Media from 'react-media';
 //component
-import Article from './Article'
+import ArticleDeskTop from './ArticleDesktop';
+import ArticleMobile from './ArticleMobile';
 
 
 const Wrapper = styled.div `
     width:100%;
-    min-height:calc(100vh - 50px);
+    min-height:calc(100vh - 6vh);
     background-color:#FFFAFA;
     display:flex;
     flex-direction:column;
@@ -77,7 +79,22 @@ const Content = ({title = null}) => {
             (<h3>{title}</h3>)
             :
             (test.map(item =>(
-                <Article key={item.name} {...item}/>
+                <Media queries={{
+                    mobile: '(max-width: 940px)',
+                    desktop:'(min-width: 941px)'
+                  }}>
+                    {matches => (
+                      <>
+                        {matches.mobile && 
+                            <ArticleMobile key={item.name} {...{...item, source:item.source.name}}/>
+                            }
+                        {matches.desktop && 
+                            <ArticleDeskTop key={item.name} {...{...item, source:item.source.name}}/>
+                            }
+                      </>
+                    )}
+                  </Media>
+                
             )))}
         </Wrapper>
     )

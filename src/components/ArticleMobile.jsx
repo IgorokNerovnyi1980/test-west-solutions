@@ -3,34 +3,27 @@ import styled from 'styled-components';
 import Moment from 'react-moment';
 
 const Wrapper = styled.div `
-    width:90%;
+    width:95%;
     min-height:100px;
     margin:20px auto;
-    padding:10px;
+    padding:10px 20px;
     box-shadow: 0px 5px 10px 0px rgba(163,186,217,0.25);
 `;
 
-const Content = styled.div `
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-`;
-
 const Title = styled.h2 `
-    text-align:right;
+    text-align:center;
     font-size:1.8em;
     color:#2F4F4F;
     font-weight:bold;
 `;
 
 const Image = styled.img `
-    width:300px;
-    max-height:200px;
+    display: block;
+    margin:10px auto;
+    width:100%;
+    /* min-width:300px; */
 `;
 
-const TextBox = styled.div `
-     width:50%;
-`;
 const Autor = styled.h6 `
     font-style:italic;
     color:grey;
@@ -39,7 +32,7 @@ const Autor = styled.h6 `
 
 const Text = styled.p `
     margin-top:10px;
-    text-align:left;
+    text-align:justify;
 `;
 
 const Topicality = styled(Autor)`
@@ -78,7 +71,7 @@ const DP = {
             " ago, but not anymore, ac… [+3260 chars]"
 }
 
-const Article = ({
+const ArticleMobile = ({
     title = DP.title,
     autor = DP.author,
     description,
@@ -92,30 +85,23 @@ const Article = ({
     return (
         <Wrapper>
             <Title>{title}</Title>
-            <Content>
-                <Image src={urlToImage}/>
-                <TextBox>
-                    <Autor>{autor}</Autor>
-                    <Topicality>
-                        <Moment date ={publishedAt} format="YYYY/MM/DD"/>
-                    </Topicality>
-                    <Text>{content}</Text>
-
-                    {/* <Source>
-                        article taken from {source}
-                    </Source> */}
-                    <Link 
-                        href={url}
-                        rel='up'
-                        target='#'
-                    >
-                        Go to original
-                    </Link>
-                    
-                </TextBox>
-            </Content>
-
+            <Image src={urlToImage}/>    
+            <Autor>{autor}</Autor>
+            <Topicality>
+                <Moment date ={publishedAt} format="YYYY/MM/DD"/>
+            </Topicality>
+            <Text>{content}</Text>
+            <Source>
+                article taken from {source}
+            </Source>
+            <Link 
+                href={url}
+                rel='up'
+                target='#'
+            >
+                Go to original
+            </Link>     
         </Wrapper>
     )
 }
-export default Article;
+export default ArticleMobile;

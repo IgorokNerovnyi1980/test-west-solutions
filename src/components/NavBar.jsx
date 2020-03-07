@@ -9,10 +9,6 @@ const Wrapper = styled.div `
     align-items:center;
 `;
 
-const Tab = styled.button `
-    
-`;
-
 const WrapLink = styled(Link)`
     position:relative;
     text-decoration: none;
