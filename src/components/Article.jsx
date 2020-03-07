@@ -24,6 +24,7 @@ const Title = styled.h2 `
 `;
 
 const Image = styled.img `
+    width:300px;
     max-height:200px;
 `;
 
@@ -100,9 +101,9 @@ const Article = ({
                     </Topicality>
                     <Text>{content}</Text>
 
-                    <Source>
+                    {/* <Source>
                         article taken from {source}
-                    </Source>
+                    </Source> */}
                     <Link 
                         href={url}
                         rel='up'
