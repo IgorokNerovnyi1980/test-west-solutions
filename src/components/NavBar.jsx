@@ -10,9 +10,12 @@ const Wrapper = styled.div `
 `;
 
 const Tab = styled.button `
+    
+`;
+
+const WrapLink = styled(Link)`
     position:relative;
-    outline:none;
-    border:none;
+    text-decoration: none;
     background:none;
     padding:10px 5px;
     color:white;
@@ -44,7 +47,7 @@ const Tab = styled.button `
 
 const DP = {
     titles: [
-        'Home', 'News', 'Login', 'Profile'
+        'home', 'news', 'login', 'profile'
     ],
     fnAlert: name => {
         alert(name)
@@ -62,15 +65,14 @@ const NavBar = ({
             {
                 titles && titles.map(
                     name => (
-                        <Link to={`/${name}`}>
-                    <Tab 
-                        key={name}
-                        active={name === activeName}
-                        // disable={name==='profile'}
+                        <WrapLink 
+                            key={name}
+                            to={`/${name}`}
+                            active={name === activeName}
+                            // disable={name==='profile'}
                         >
                             {name}
-                    </Tab>
-                    </Link>
+                    </WrapLink>
                         )
                 )
             }
