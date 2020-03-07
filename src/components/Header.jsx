@@ -14,11 +14,11 @@ const Wrapper = styled.header `
     align-items:center;
 `;
 
-const Header = () => {
+const Header = ({title}) => {
 
     return (
     <Wrapper>
-        <NavBar/>
+        <NavBar activeName={title}/>
     </Wrapper>
     )
 };

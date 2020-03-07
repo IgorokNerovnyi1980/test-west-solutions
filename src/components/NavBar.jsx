@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div `
     width:50%;
@@ -43,7 +44,7 @@ const Tab = styled.button `
 
 const DP = {
     titles: [
-        'home', 'news', 'login', 'profile'
+        'Home', 'News', 'Login', 'Profile'
     ],
     fnAlert: name => {
         alert(name)
@@ -51,6 +52,7 @@ const DP = {
 }
 
 const NavBar = ({
+    activeName = '',
     titles = DP.titles,
     fnClick = DP.fnAlert
 }) => {
@@ -59,13 +61,16 @@ const NavBar = ({
         <Wrapper>
             {
                 titles && titles.map(
-                    name => (<Tab 
+                    name => (
+                        <Link to={`/${name}`}>
+                    <Tab 
                         key={name}
-                        active={name==='home'}
-                        disable={name==='profile'}
+                        active={name === activeName}
+                        // disable={name==='profile'}
                         >
                             {name}
-                        </Tab>
+                    </Tab>
+                    </Link>
                         )
                 )
             }

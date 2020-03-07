@@ -8,6 +8,10 @@ const Wrapper = styled.div `
     width:100%;
     min-height:calc(100vh - 50px);
     background-color:#FFFAFA;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 `;
 
 
@@ -66,12 +70,15 @@ const test = [
         }
 ];
 
-const Content = () => {
+const Content = ({title = null}) => {
     return (
         <Wrapper>
-            {test.map(item =>(
+            {title ? 
+            (<h3>{title}</h3>)
+            :
+            (test.map(item =>(
                 <Article key={item.name} {...item}/>
-            ))}
+            )))}
         </Wrapper>
     )
 };

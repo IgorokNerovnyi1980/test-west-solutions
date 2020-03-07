@@ -1,5 +1,6 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { Route, Switch } from 'react-router-dom';
 //pages
 import Base from './pages/Base';
 
@@ -36,12 +37,27 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const DP = ['home', 'news', 'login', 'profile' ];
+const notFound = 'Sorry, Page not found';
+const defaultPage = 'Home'
+
 
 function App() {
   return (
     <>
     <GlobalStyle />
-    <Base />
+      
+      <Switch>
+        <Route path='/' exact render={props => <Base {...props} title={defaultPage} />} />
+          {DP.map(name =>(
+            <Route 
+              key={name}
+              path={`/${name}`}
+              render={props => <Base {...props} title={name} />}
+            />
+          ))}
+        <Route render={() => <Base title={notFound} />} />
+      </Switch>
     </>
   );
 }
