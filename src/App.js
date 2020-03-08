@@ -36,7 +36,8 @@ const GlobalStyle = createGlobalStyle`
   input, textarea{
     outline: none;
   }
-  @media screen and (min-width: 1921px) {
+
+  @media (min-width: 1921px) {
   body {
     font-size: 16px;
   }

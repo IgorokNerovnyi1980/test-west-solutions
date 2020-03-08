@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { variables } from '../variables';
 import Media from 'react-media';
 //component
 import ArticleDeskTop from './ArticleDesktop';
@@ -9,13 +10,12 @@ import ArticleMobile from './ArticleMobile';
 const Wrapper = styled.div `
     width:100%;
     min-height:calc(100vh - 6vh - 10px);
-    background-color:#FFFAFA;
+    background-color:${variables.mainBG};
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 `;
-
 
 const test = [
     {
@@ -79,9 +79,10 @@ const Content = ({title = null}) => {
             (<h3>{title}</h3>)
             :
             (test.map(item =>(
+
                 <Media queries={{
-                    mobile: '(max-width: 940px)',
-                    desktop:'(min-width: 941px)'
+                    mobile: `(${variables.mobileMediaRule})`,
+                    desktop:`(${variables.desktopMediaRule})`
                   }}>
                     {matches => (
                       <>
@@ -93,8 +94,7 @@ const Content = ({title = null}) => {
                             }
                       </>
                     )}
-                  </Media>
-                
+                  </Media>  
             )))}
         </Wrapper>
     )

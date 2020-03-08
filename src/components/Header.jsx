@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { variables } from '../variables';
 //components
 import NavBar from "./NavBar"
 
@@ -8,11 +9,11 @@ const Wrapper = styled.header `
     min-height:6vh;
     position: sticky;
     top:0;
-    background-color:#a3bad9;
+    background-color:${ variables.secondaryBG };
     display:flex;
     justify-content:space-around;
     align-items:center;
-    box-shadow: 0px 5px 5px 0px rgba(163,186,217,0.25);
+    box-shadow: ${ variables.headerBoxShadow };
 `;
 
 const Header = ({title, fnClick}) => {

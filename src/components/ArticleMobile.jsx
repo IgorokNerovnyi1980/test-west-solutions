@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { variables } from '../variables';
 import Moment from 'react-moment';
 
 const Wrapper = styled.div `
@@ -8,13 +9,13 @@ const Wrapper = styled.div `
     min-height:100px;
     margin:20px auto;
     padding:10px 20px;
-    box-shadow: 0px 5px 10px 0px rgba(163,186,217,0.25);
+    box-shadow: ${ variables.boxShadow };
 `;
 
 const Title = styled.h2 `
     text-align:center;
     font-size:1.8em;
-    color:#2F4F4F;
+    color:${ variables.titleClr };
     font-weight:bold;
 `;
 
@@ -22,13 +23,12 @@ const Image = styled.img `
     display: block;
     margin:10px auto;
     width:100%;
-    /* min-width:300px; */
 `;
 
 const Autor = styled.h6 `
     font-style:italic;
-    color:grey;
-    font-size:0.8em;
+    color:${ variables.hoverClr };
+    font-size:${ variables.secondayFZ };
 `;
 
 const Text = styled.p `
@@ -37,7 +37,6 @@ const Text = styled.p `
 `;
 
 const Topicality = styled(Autor)`
-    font-size:0.7em;
 `;
 
 const Source = styled(Autor)`
@@ -47,42 +46,19 @@ const Source = styled(Autor)`
 const WrapLink = styled(Link)`
     text-decoration: none;
     padding:3px 3px 3px 0;
-    color:#a3bad9;
-    font-size:0.7em;
+    color:${ variables.linkClr };
+    font-size:${ variables.secondayFZ };
     font-style:italic;  
 `;
 
-
-const DP = {
-    source: {
-        id: null,
-        name: "Cointelegraph.com"
-    },
-    author: "Cointelegraph By Erhan Kahraman",
-    title: "BitPanda CEO Eric Demuth Says Bitcoin Is Gold 2.0 for Millenials",
-    description: "BitPanda CEO Eric Demuth explains why regulations are necessary to avoid a “Wi" +
-            "ld West” for crypto, and names first stop outside of the EU",
-    url: "https://cointelegraph.com/news/bitpanda-ceo-eric-demuth-says-bitcoin-is-gold-2" +
-            "0-for-millenials",
-    urlToImage: "https://images.cointelegraph.com/images/740_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLm" +
-            "NvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy80MTAxNGI3YjJlZTVmYzM1YTEzNWVmYjU2ZDU0MjQwNS5q" +
-            "cGc=.jpg",
-    publishedAt: "2020-03-07T06:05:00Z",
-    content: "The crypto ecosystem tends to see regulations as “the big bad wolf.” In this n" +
-            "arrative, government and regulators set rules that slow down innovation and da" +
-            "mage growth for the crypto industry. That might have been the case a few years" +
-            " ago, but not anymore, ac… [+3260 chars]"
-}
-
 const ArticleMobile = ({
-    title = DP.title,
-    autor = DP.author,
-    description,
-    publishedAt = DP.publishedAt,
-    urlToImage = DP.urlToImage,
-    content = DP.content,
-    source = DP.source.name,
-    url = DP.url
+    title = '',
+    autor = '',
+    publishedAt = '',
+    urlToImage = '',
+    content = '',
+    source = '',
+    url = ''
 }) => {
 
     return (
@@ -91,16 +67,15 @@ const ArticleMobile = ({
             <Image src={urlToImage}/>    
             <Autor>{autor}</Autor>
             <Topicality>
-                <Moment date ={publishedAt} format="YYYY/MM/DD"/>
+                <Moment date ={publishedAt} format={variables.formatDate}/>
             </Topicality>
             <Text>{content}</Text>
             <Source>
                 article taken from {source}
             </Source>
             <WrapLink 
-                href={url}
-                rel='up'
-                target='#'
+                to={url}
+                target={variables.targetLink}
             >
                 Go to original
             </WrapLink>     

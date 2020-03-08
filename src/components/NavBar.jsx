@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { variables } from '../variables';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div `
@@ -14,8 +15,8 @@ const WrapLink = styled(Link)`
     text-decoration: none;
     background:none;
     padding:10px 5px;
-    color:white;
-    font-size: ${ props=>props.active ? '1.2em' : '1em' };
+    color:${ variables.tabClr };
+    font-size: ${ props=>  variables[ props.active ? 'accentFZ' : 'mainFZ']};
     cursor: ${ props => props.disable ? 'default' : 'pointer' };
     transition:0.2s;
     :after{
@@ -25,16 +26,16 @@ const WrapLink = styled(Link)`
         height:2px;
         bottom:5px;
         left:0;
-        background-color: ${ props => props.active ? 'white' : 'grey' };
+        background-color: ${ props => variables[props.active ? 'tabClr' : 'hoverClr'] };
         opacity: ${ props => props.active ? 1 : 0 }; 
         transition:0.2s; 
     }
 
     :hover{
-       color:${ props => props.disable ? 'white' : 'grey' };
+       color:${ props => variables[props.disable ? 'tabClr' : 'hoverClr'] };
        :after {
         opacity:${ props => props.disable ? 0 : 1 };
-        background-color: grey;
+        background-color: ${ variables.hoverClr };
        }
     }
     :active{
@@ -42,19 +43,11 @@ const WrapLink = styled(Link)`
     }
 `;
 
-const DP = {
-    titles: [
-        'home', 'news', 'login', 'profile'
-    ],
-    fnAlert: name => {
-        alert(name)
-    }
-}
 
 const NavBar = ({
     activeName = '',
-    titles = DP.titles,
-    fnClick = DP.fnAlert
+    titles = [],
+    fnClick = () => { },
 }) => {
 
     return (
