@@ -8,7 +8,7 @@ import ArticleMobile from './ArticleMobile';
 
 const Wrapper = styled.div `
     width:100%;
-    min-height:calc(100vh - 6vh);
+    min-height:calc(100vh - 6vh - 10px);
     background-color:#FFFAFA;
     display:flex;
     flex-direction:column;

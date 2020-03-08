@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 //pages
-import Base from './pages/Base';
+import Header from './components/Header';
+import Content from './components/Content'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -48,20 +49,27 @@ const defaultPage = null;
 
 
 function App() {
+  const[activePage, setActivePage] = useState('home');
+
+  const handleChangeCurrentPage = name => {
+    setActivePage(name);
+  };
+
   return (
     <>
     <GlobalStyle />
+    <Header title={activePage} fnClick={handleChangeCurrentPage}/>
       
       <Switch>
-        <Route path='/' exact render={props => <Base {...{...props, title:defaultPage}}/>} />
+        <Route path='/' exact render={props => <Content {...{...props, title:defaultPage}}/>} />
           {DP.map(name =>(
             <Route 
               key={name}
               path={`/${name}`}
-              render={props => <Base {...{...props, title:name}} />}
+              render={props => <Content {...{...props, title:name}} />}
             />
           ))}
-        <Route render={() => <Base title={notFound} />} />
+        <Route render={() => <Content title={notFound} />} />
       </Switch>
     </>
   );
