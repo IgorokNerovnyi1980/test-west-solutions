@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
-//pages
+import { connect } from 'react-redux';
+import { getNews } from './redux/actions';
+//components
 import Header from './components/Header';
 import Content from './components/Content'
 
@@ -44,26 +46,24 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-const DP = ['home', 'news', 'login', 'profile' ];
-const notFound = 'Sorry, Page not found';
-const defaultPage = null;
-
-
-function App() {
-  const[activePage, setActivePage] = useState('home');
-
-  const handleChangeCurrentPage = name => {
-    setActivePage(name);
-  };
+function App(
+    {
+      namesTab,
+      notFound,
+      currentPage,
+      getData
+    }
+  ) {
+    getData();
 
   return (
     <>
     <GlobalStyle />
-    <Header title={activePage} fnClick={handleChangeCurrentPage}/>
-      
+
+    <Header />
       <Switch>
-        <Route path='/' exact render={props => <Content {...{...props, title:defaultPage}}/>} />
-          {DP.map(name =>(
+        <Route path='/' exact render={props => <Content {...{...props, title:currentPage}}/>} />
+          {namesTab.map(name =>(
             <Route 
               key={name}
               path={`/${name}`}
@@ -76,4 +76,18 @@ function App() {
   );
 }
 
-export default App;
+const STP = state => ({
+  namesTab: state.titles,
+  notFound: state.notFound,
+  currentPage: state.currentPage
+});
+
+const DTP = dispatch => ({
+  getData: () => dispatch(getNews()),
+});
+
+export default connect(
+  STP,
+  DTP,
+)(App);
+

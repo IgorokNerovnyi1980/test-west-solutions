@@ -16,14 +16,11 @@ const Wrapper = styled.header `
     box-shadow: ${ variables.headerBoxShadow };
 `;
 
-const Header = ({title, fnClick}) => {
+const Header = () => {
 
     return (
     <Wrapper>
-        <NavBar 
-            activeName={title}
-            fnClick={fnClick}
-        />
+        <NavBar />
     </Wrapper>
     )
 };

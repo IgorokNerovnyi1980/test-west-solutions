@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { variables } from '../variables';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { handleChangeCurrentPage } from '../redux/actions';
 
 const Wrapper = styled.div `
     width:50%;
@@ -45,21 +47,21 @@ const WrapLink = styled(Link)`
 
 
 const NavBar = ({
-    activeName = '',
-    titles = [],
+    currentPage ='',
+    namesTab = [],
     fnClick = () => { },
 }) => {
 
     return (
         <Wrapper>
             {
-                titles && titles.map(
+                namesTab && namesTab.map(
                     name => (
                         <WrapLink 
                             key={name}
                             to={`/${name}`}
-                            active={name === activeName}
-                            onClick={()=>fnClick(name)}
+                            active={name === currentPage}
+                            onClick={()=> fnClick( name )}
                             // disable={name==='profile'}
                         >
                             {name}
@@ -71,4 +73,16 @@ const NavBar = ({
     )
 };
 
-export default NavBar;
+const STP = state => ({
+    namesTab: state.titles,
+    currentPage: state.currentPage
+  });
+
+const DTP = dispatch => ({
+    fnClick: name => dispatch(handleChangeCurrentPage(name)),
+  });
+  
+  export default connect(
+    STP,
+    DTP,
+  )(NavBar);
