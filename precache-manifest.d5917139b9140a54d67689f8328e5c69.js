@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6c653c9c9e3b18b7dc47154c472dcb5c",
+    "revision": "f824801ccd0072267bdc6c8f9b809188",
     "url": "/test-west-solutions/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test-west-solutions/static/js/2.d6a03bb5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d4a4217dfec9db6c7691",
-    "url": "/test-west-solutions/static/js/main.a3d0f058.chunk.js"
+    "revision": "dd6a00dba4e0e688ff29",
+    "url": "/test-west-solutions/static/js/main.6ee42de6.chunk.js"
   },
   {
     "revision": "3a2f29d07acc88a55ae4",
