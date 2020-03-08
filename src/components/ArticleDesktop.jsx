@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 
@@ -19,6 +20,8 @@ const Content = styled.div `
 `;
 
 const Title = styled.h2 `
+    padding-right:20px;
+    padding-top:10px;
     text-align:right;
     font-size:1.8em;
     color:#2F4F4F;
@@ -54,10 +57,12 @@ const Source = styled(Autor)`
     margin-top:10px;
 `;
 
-const Link = styled.a`
-    color:blue;
+const WrapLink = styled(Link)`
+    text-decoration: none;
+    padding:3px 3px 3px 0;
+    color:#a3bad9;
     font-size:0.7em;
-    font-style:italic;
+    font-style:italic;  
 `;
 
 
@@ -85,7 +90,6 @@ const DP = {
 const ArticleDesktop = ({
     title = DP.title,
     autor = DP.author,
-    description,
     publishedAt = DP.publishedAt,
     urlToImage = DP.urlToImage,
     content = DP.content,
@@ -108,13 +112,13 @@ const ArticleDesktop = ({
                     <Source>
                         article taken from {source}
                     </Source>
-                    <Link 
+                    <WrapLink 
                         href={url}
                         rel='up'
                         target='#'
                     >
                         Go to original
-                    </Link>
+                    </WrapLink>
                     
                 </TextBox>
             </Content>

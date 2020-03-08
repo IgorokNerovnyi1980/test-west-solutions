@@ -33,7 +33,8 @@ const WrapLink = styled(Link)`
     :hover{
        color:${ props => props.disable ? 'white' : 'grey' };
        :after {
-        opacity:${ props => props.disable ? 0 : 1 }
+        opacity:${ props => props.disable ? 0 : 1 };
+        background-color: grey;
        }
     }
     :active{
@@ -65,6 +66,7 @@ const NavBar = ({
                             key={name}
                             to={`/${name}`}
                             active={name === activeName}
+                            onClick={()=>fnClick(name)}
                             // disable={name==='profile'}
                         >
                             {name}

@@ -15,11 +15,14 @@ const Wrapper = styled.header `
     box-shadow: 0px 5px 5px 0px rgba(163,186,217,0.25);
 `;
 
-const Header = ({title}) => {
+const Header = ({title, fnClick}) => {
 
     return (
     <Wrapper>
-        <NavBar activeName={title}/>
+        <NavBar 
+            activeName={title}
+            fnClick={fnClick}
+        />
     </Wrapper>
     )
 };
