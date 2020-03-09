@@ -7,8 +7,9 @@ import { handleChangeCurrentPage } from '../redux/actions';
 
 const Wrapper = styled.div `
     width:50%;
+    max-width:calc(1300px - 5%);
     display:flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items:center;
 `;
 

@@ -13,29 +13,45 @@ const Wrapper = styled.div `
 `;
 
 const Text = styled.p`
+    width:90%;
+    max-width:1300px;
     min-height:14vh;
+    margin-top:10px;
+    padding: 0 5px;
     text-align:center;
-    padding:30px 10px 20px;
     font-size:${variables.accentFZ};
+    box-shadow:${variables.boxShadow};
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    @media (max-width:${variables.mediaW_2}) {
+        width:90%;
+    }
     
 `;
 
 const Box = styled.div`
+    width:92%;
+    max-width:1300px;
     min-height: 80vh;
     display:flex;
     flex-wrap:wrap;
-    justify-content:space-evenly;
+    justify-content:space-between;
     align-items:center;
+    @media (max-width:${variables.mediaW_2}) {
+        width:100%;
+        justify-content:center;
+    }
 `;
 
 const Item = styled.div`
-    width:32%;
+    width:33%;
     @media (max-width: ${variables.mediaW_1}) {
         width:95%;
     }
 
     @media (min-width: ${variables.mediaW_11})and (max-width: ${variables.mediaW_3})   {
-            width:44%;
+            width:46%;
     }
 `;
 

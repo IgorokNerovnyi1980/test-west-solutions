@@ -17,8 +17,8 @@ const Filters = styled.div`
     max-width:1300px;
     min-height:14vh;
     margin-top:10px;
-    border-bottom:2px  solid ${variables.hoverClr};
     font-size:${variables.accentFZ};
+    box-shadow:${variables.boxShadow};
     display:flex;
     justify-content:space-evenly;
     align-items:center;

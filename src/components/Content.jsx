@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import NewsPage from '../pages/News';
 import HomePage from "../pages/Home";
 import ProfilePage from "../pages/Profile";
+import LoginPage from '../pages/Login'
 
 
 const Wrapper = styled.div `
@@ -30,7 +31,7 @@ const Content = (
                 case 'news':
                     return <NewsPage />;
                 case 'login':
-                    return <h3>{currentPage}</h3>;
+                    return <LoginPage />;
                 case 'profile':
                     return <ProfilePage />;
                 default:

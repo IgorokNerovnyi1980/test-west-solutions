@@ -28,7 +28,7 @@ const Info = styled.div`
     display:flex;
     justify-content:flex-start;
     align-items:flex-end;
-    border-bottom: 1px solid ${variables.hoverClr};
+    border-bottom: 2px solid ${variables.hoverClr};
     @media (max-width:${variables.mediaW_2}) {
         width:100%;
         justify-content:center;
@@ -69,7 +69,6 @@ const ProfilePage = (
             profile = null
         }
     ) => {
-        console.log(profile)
         return(
             <Wrapper>
                 <Box>

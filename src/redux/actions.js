@@ -2,6 +2,13 @@ import axios from 'axios';
 import { Type } from './types';
 import { standartReq } from '../constants';
 
+export function changeIsAutorization(bool){
+  return {
+    type: Type.IS_AUTORIZATION,
+    payload: bool,
+  };
+};
+
 function changeCurrentPage(string) {
     return {
       type: Type.CHANGE_CURRENT_PAGE,
