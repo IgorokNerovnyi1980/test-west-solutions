@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/test-west-solutions/static/js/main.380fbfb5.chunk.js",
-    "main.js.map": "/test-west-solutions/static/js/main.380fbfb5.chunk.js.map",
+    "main.js": "/test-west-solutions/static/js/main.f1d66846.chunk.js",
+    "main.js.map": "/test-west-solutions/static/js/main.f1d66846.chunk.js.map",
     "runtime-main.js": "/test-west-solutions/static/js/runtime-main.ce2dc213.js",
     "runtime-main.js.map": "/test-west-solutions/static/js/runtime-main.ce2dc213.js.map",
     "static/js/2.c625e507.chunk.js": "/test-west-solutions/static/js/2.c625e507.chunk.js",
     "static/js/2.c625e507.chunk.js.map": "/test-west-solutions/static/js/2.c625e507.chunk.js.map",
     "index.html": "/test-west-solutions/index.html",
-    "precache-manifest.01789c5a194f23ab4b833ee42285792e.js": "/test-west-solutions/precache-manifest.01789c5a194f23ab4b833ee42285792e.js",
+    "precache-manifest.5af9bb9ed665f649cf2cac62e7d3b19b.js": "/test-west-solutions/precache-manifest.5af9bb9ed665f649cf2cac62e7d3b19b.js",
     "service-worker.js": "/test-west-solutions/service-worker.js",
     "static/js/2.c625e507.chunk.js.LICENSE.txt": "/test-west-solutions/static/js/2.c625e507.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ce2dc213.js",
     "static/js/2.c625e507.chunk.js",
-    "static/js/main.380fbfb5.chunk.js"
+    "static/js/main.f1d66846.chunk.js"
   ]
 }
