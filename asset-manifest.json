@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/test-west-solutions/static/js/main.2dc63ec3.chunk.js",
-    "main.js.map": "/test-west-solutions/static/js/main.2dc63ec3.chunk.js.map",
+    "main.js": "/test-west-solutions/static/js/main.c5d1af3c.chunk.js",
+    "main.js.map": "/test-west-solutions/static/js/main.c5d1af3c.chunk.js.map",
     "runtime-main.js": "/test-west-solutions/static/js/runtime-main.ce2dc213.js",
     "runtime-main.js.map": "/test-west-solutions/static/js/runtime-main.ce2dc213.js.map",
-    "static/js/2.422bc8c0.chunk.js": "/test-west-solutions/static/js/2.422bc8c0.chunk.js",
-    "static/js/2.422bc8c0.chunk.js.map": "/test-west-solutions/static/js/2.422bc8c0.chunk.js.map",
+    "static/js/2.c625e507.chunk.js": "/test-west-solutions/static/js/2.c625e507.chunk.js",
+    "static/js/2.c625e507.chunk.js.map": "/test-west-solutions/static/js/2.c625e507.chunk.js.map",
     "index.html": "/test-west-solutions/index.html",
-    "precache-manifest.6f90e54de3b4c059199f97265b097b38.js": "/test-west-solutions/precache-manifest.6f90e54de3b4c059199f97265b097b38.js",
+    "precache-manifest.23b80272ad483e03fee957c7edfb71cb.js": "/test-west-solutions/precache-manifest.23b80272ad483e03fee957c7edfb71cb.js",
     "service-worker.js": "/test-west-solutions/service-worker.js",
-    "static/js/2.422bc8c0.chunk.js.LICENSE.txt": "/test-west-solutions/static/js/2.422bc8c0.chunk.js.LICENSE.txt"
+    "static/js/2.c625e507.chunk.js.LICENSE.txt": "/test-west-solutions/static/js/2.c625e507.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ce2dc213.js",
-    "static/js/2.422bc8c0.chunk.js",
-    "static/js/main.2dc63ec3.chunk.js"
+    "static/js/2.c625e507.chunk.js",
+    "static/js/main.c5d1af3c.chunk.js"
   ]
 }
