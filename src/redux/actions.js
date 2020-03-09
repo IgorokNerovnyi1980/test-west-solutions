@@ -34,7 +34,13 @@ export const getNews = function() {
         .catch(error => {
           return error;
         });
-      dispatch(uploadDataInStore(result.data.articles));
+        if(result.status === 200){
+            console.log('good')
+            dispatch(uploadDataInStore(result.data.articles));
+        }else{
+            console.log('bed')
+        }
+     
   
     };
   };

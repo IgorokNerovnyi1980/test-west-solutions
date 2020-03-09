@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { variables } from '../variables';
+import { variables } from '../../variables';
 import Moment from 'react-moment';
 
 const Wrapper = styled.div `
     width:95%;
-    min-height:100px;
+    min-height:550px;
     margin:20px auto;
     padding:10px 20px;
     box-shadow: ${ variables.boxShadow };

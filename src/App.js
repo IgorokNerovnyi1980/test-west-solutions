@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -54,7 +54,10 @@ function App(
       getData
     }
   ) {
-    getData();
+    useEffect(()=>{
+      getData()
+    },[]);
+    
 
   return (
     <>
@@ -62,12 +65,12 @@ function App(
 
     <Header />
       <Switch>
-        <Route path='/' exact render={props => <Content {...{...props, title:currentPage}}/>} />
+        <Route path='/' exact render={props => <Content {...props}/>} />
           {namesTab.map(name =>(
             <Route 
               key={name}
               path={`/${name}`}
-              render={props => <Content {...{...props, title:name}} />}
+              render={props => <Content {...props} />}
             />
           ))}
         <Route render={() => <Content title={notFound} />} />

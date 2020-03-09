@@ -5,6 +5,7 @@ const initialState = {
   titles:['home', 'news', 'login', 'profile' ],
   currentPage : 'home',
   notFound : 'Sorry, Page not found',
+  greeting:'Hello! This application will help you to keep abreast of current news. To use individual filters please log in.',
   isAutorization: false,
 
 };

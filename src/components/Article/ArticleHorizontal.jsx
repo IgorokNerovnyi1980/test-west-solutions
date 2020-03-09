@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { variables } from '../variables';
+import { variables } from '../../variables';
 import Moment from 'react-moment';
 
 const Wrapper = styled.div `
@@ -87,7 +87,6 @@ const ArticleDesktop = ({
                         <Moment date ={publishedAt} format={variables.formatDate}/>
                     </Topicality>
                     <Text>{content}</Text>
-
                     <Source>
                         article taken from {source}
                     </Source>
