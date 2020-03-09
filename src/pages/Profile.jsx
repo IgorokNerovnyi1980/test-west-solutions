@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { variables } from '../variables';
 import { connect } from 'react-redux';
+import { logOut } from '../redux/actions'
 //image
-import BGImage from "../img/user.png"
+import BGImage from "../img/user.png";
+//components
+import Button from "../components/Button"
 
 const Wrapper = styled.div`
     width:100%;
@@ -33,6 +36,11 @@ const Info = styled.div`
         width:100%;
         justify-content:center;
     }
+`;
+
+const Logout = styled.div`
+    width:90%;
+    margin:10px auto;
 `;
 
 const Avatar = styled.div`
@@ -66,7 +74,8 @@ const Text = styled(Title)`
 const ProfilePage = (
         {
             isAutorization = false,
-            profile = null
+            profile = null,
+            logOut = () => { },
         }
     ) => {
         return(
@@ -93,6 +102,13 @@ const ProfilePage = (
                             }
                         </div>
                     </Info>
+                    <Logout>
+                        <Button
+                            text = 'Log out'
+                            fnClick = {logOut}
+                            disabled = {!isAutorization}
+                        />
+                    </Logout>
                     
                 </Box>
             </Wrapper>
@@ -105,7 +121,10 @@ const STP = state => ({
     profile: state.profile,
   });
   
+const DTP = dispatch => ({
+    logOut: () => dispatch(logOut()),
+});
   export default connect(
     STP,
-    null,
+    DTP,
   )(ProfilePage);

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getNews } from './redux/actions';
+import { getNews, getStatusAutorization } from './redux/actions';
 //components
 import Header from './components/Header';
 import Content from './components/Content'
@@ -51,11 +51,13 @@ function App(
       namesTab,
       notFound,
       currentPage,
-      getData
+      getData,
+      getLocalvalue
     }
   ) {
     useEffect(()=>{
-      getData()
+      getData();
+      getLocalvalue();
     },[]);
     
 
@@ -87,6 +89,7 @@ const STP = state => ({
 
 const DTP = dispatch => ({
   getData: () => dispatch(getNews()),
+  getLocalvalue: () =>dispatch( getStatusAutorization())
 });
 
 export default connect(

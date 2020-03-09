@@ -62,7 +62,7 @@ const HomePage = (
         isAutorization = false,
         news = []
     }) => {
-
+        
     return (
         <Wrapper>
             <Text>

@@ -93,7 +93,7 @@ const LoginPage = (
                             /> 
                             <Button
                             type='submit'
-                            text='Log in'
+                            text='Sign in'
                             disabled={values.password === '' || values.login === ''}
                             /> 
                         </form>)
