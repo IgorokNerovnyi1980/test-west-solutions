@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { variables } from '../variables';
 import { connect } from 'react-redux';
 //component
-import Article from '../components/Article/ArticleVertical'
+import Article from '../components/Article'
 
 const Wrapper = styled.div `
     display:flex;
@@ -12,11 +12,19 @@ const Wrapper = styled.div `
     align-items:center;
 `;
 
-const Text = styled.p`
+const Filters = styled.div`
+    width:90%;
+    max-width:1300px;
     min-height:14vh;
-    text-align:center;
-    padding:30px 10px 20px;
+    margin-top:10px;
+    border-bottom:2px  solid ${variables.hoverClr};
     font-size:${variables.accentFZ};
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    @media (max-width:${variables.mediaW_2}) {
+        width:95%;
+    }
     
 `;
 
@@ -28,51 +36,32 @@ const Box = styled.div`
     align-items:center;
 `;
 
-const Item = styled.div`
-    width:32%;
-    @media (max-width: ${variables.mediaW_1}) {
-        width:95%;
-    }
-
-    @media (min-width: ${variables.mediaW_11})and (max-width: ${variables.mediaW_3})   {
-            width:44%;
-    }
-`;
-
-const HomePage = (
+const NewsPage = (
     {
-        greeting = 'Hi!',
-        individualGreeting = 'Hi admin',
         isAutorization = false,
-        news = []
+        news = [],
     }) => {
 
     return (
         <Wrapper>
-            <Text>
-                { isAutorization ? individualGreeting : greeting }
-            </Text>
+             {isAutorization && <Filters><p>Your filters</p></Filters>}
             <Box>
                 {news && news.map(item =>(
-                    <Item key={item.title}>
-                        <Article {...{...item,source:item.source.name }} />
-                    </Item>
+                    <Article key={item.title} data={item} source={item.source.name}/>
+                    
                 ))}
             </Box>
-
-            
         </Wrapper>
+        
     )
 };
 
 const STP = state => ({
     news: state.news,
-    greeting: state.greeting,
-    individualGreeting: state.individualGreeting,
     isAutorization: state.isAutorization
   });
   
   export default connect(
     STP,
     null,
-  )(HomePage);
+  )(NewsPage);

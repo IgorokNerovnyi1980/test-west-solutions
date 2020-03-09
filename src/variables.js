@@ -21,4 +21,10 @@ export const variables = {
     targetLink:'#',
     mobileMediaRule: 'max-width:940px',
     desktopMediaRule: 'min-width:941px',
+    //media 
+    mediaW_1:'720px',
+    mediaW_11:'721px',
+    mediaW_2:'940px',
+    mediaW_3:'1200px',
+
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { variables } from '../../variables';
 import Moment from 'react-moment';
@@ -43,7 +42,7 @@ const Source = styled(Autor)`
     margin-top:10px;
 `;
 
-const WrapLink = styled(Link)`
+const WrapLink = styled.a`
     text-decoration: none;
     padding:3px 3px 3px 0;
     color:${ variables.linkClr };
@@ -74,8 +73,9 @@ const ArticleMobile = ({
                 article taken from {source}
             </Source>
             <WrapLink 
-                to={url}
+                href={url}
                 target={variables.targetLink}
+                rel='up'
             >
                 Go to original
             </WrapLink>     

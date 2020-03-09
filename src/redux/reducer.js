@@ -3,10 +3,17 @@ import { Type } from './types';
 const initialState = {
   news: null,
   titles:['home', 'news', 'login', 'profile' ],
-  currentPage : 'home',
+  currentPage : 'profile',
   notFound : 'Sorry, Page not found',
   greeting:'Hello! This application will help you to keep abreast of current news. To use individual filters please log in.',
+  individualGreeting: 'Glad to see you again! Good news for you - news filters have been added to the news section.',
   isAutorization: false,
+  profile : { 
+    name:'admin',
+    location: 'USA',
+    password:'12345',
+    filters: ['javaScript', 'react', 'motorcycles'],
+   }
 
 };
 

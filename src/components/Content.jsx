@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { variables } from '../variables';
 import { connect } from 'react-redux';
 //pages
-import ArticlesList from '../pages/ArticlesList';
-import HomePage from "../pages/Home"
+import NewsPage from '../pages/News';
+import HomePage from "../pages/Home";
+import ProfilePage from "../pages/Profile";
 
 
 const Wrapper = styled.div `
@@ -27,11 +28,11 @@ const Content = (
                 case 'home':
                   return <HomePage />;
                 case 'news':
-                    return <ArticlesList />;
+                    return <NewsPage />;
                 case 'login':
                     return <h3>{currentPage}</h3>;
                 case 'profile':
-                    return <h3>{currentPage}</h3>;
+                    return <ProfilePage />;
                 default:
                   return <h3>{currentPage}</h3>;
               }
