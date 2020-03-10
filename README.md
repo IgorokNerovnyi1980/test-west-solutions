@@ -1,6 +1,7 @@
 This is a SPA application that displays current news source https://newsapi.org.
 
 Styles defined using styled-components
+The application is optimized for devices with a screen width of 360px to 3840px
 All data is stored in redux store
 All functions are in the actions file (src / redux / actions.js). An exception for the Login page is the required functions are recorded in the form component.
 
