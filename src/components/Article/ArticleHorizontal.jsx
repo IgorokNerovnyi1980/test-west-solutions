@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variables } from '../../variables';
+import {variables} from '../../variables';
 import Moment from 'react-moment';
 
 const Wrapper = styled.div `
@@ -9,7 +9,7 @@ const Wrapper = styled.div `
     min-height:100px;
     margin:20px auto;
     padding:10px;
-    box-shadow:${ variables.boxShadow };
+    box-shadow:${variables.boxShadow};
 `;
 
 const Content = styled.div `
@@ -23,8 +23,8 @@ const Title = styled.h2 `
     padding-right:20px;
     padding-top:10px;
     text-align:right;
-    font-size:${ variables.titleFZ };
-    color:${ variables.titleClr };
+    font-size:${variables.titleFZ};
+    color:${variables.titleClr};
     font-weight:bold;
 `;
 
@@ -40,14 +40,14 @@ const TextBox = styled.div `
 `;
 const Autor = styled.h6 `
     font-style:italic;
-    color:${ variables.hoverClr };
-    font-size:${ variables.secondayFZ };
+    color:${variables.hoverClr};
+    font-size:${variables.secondayFZ};
 `;
 
 const Text = styled.p `
     margin-top:10px;
     text-align:justify;
-    font-size:${ variables.mainFZ };
+    font-size:${variables.mainFZ};
 `;
 
 const Topicality = styled(Autor)`
@@ -57,11 +57,11 @@ const Source = styled(Autor)`
     margin-top:10px;
 `;
 
-const WrapLink = styled.a`
+const WrapLink = styled.a `
     text-decoration: none;
     padding:3px 3px 3px 0;
-    color:${ variables.linkClr };
-    font-size:${ variables.secondayFZ };
+    color:${variables.linkClr};
+    font-size:${variables.secondayFZ};
     font-style:italic;  
 `;
 
@@ -83,20 +83,16 @@ const ArticleDesktop = ({
                 <TextBox>
                     <Autor>{autor}</Autor>
                     <Topicality>
-                        <Moment date ={publishedAt} format={variables.formatDate}/>
+                        <Moment date={publishedAt} format={variables.formatDate}/>
                     </Topicality>
                     <Text>{content}</Text>
                     <Source>
                         article taken from {source}
                     </Source>
-                    <WrapLink 
-                        href={url}
-                        target={variables.targetLink}
-                        rel='up'
-                    >
+                    <WrapLink href={url} target={variables.targetLink} rel='up'>
                         Go to original
                     </WrapLink>
-                    
+
                 </TextBox>
             </Content>
 

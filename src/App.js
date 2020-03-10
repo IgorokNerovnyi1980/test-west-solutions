@@ -1,13 +1,18 @@
 import React, {useEffect} from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getNews, getStatusAutorization } from './redux/actions';
+import {createGlobalStyle} from 'styled-components';
+import {Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getNews, getStatusAutorization} from './redux/actions';
 //components
 import Header from './components/Header';
-import Content from './components/Content'
+import Base from './components/Base';
+//pages
+import NewsPage from './pages/News';
+import HomePage from "./pages/Home";
+import ProfilePage from "./pages/Profile";
+import LoginPage from './pages/Login';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle `
   * {
     box-sizing: border-box;
   }
@@ -46,54 +51,50 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-function App(
-    {
-      namesTab,
-      notFound,
-      currentPage,
-      getData,
-      getLocalvalue
+function App({namesTab, notFound, currentPage, getData, getLocalvalue}) {
+    useEffect(() => {
+        getData();
+        getLocalvalue();
+    });
+
+    const pages = {
+        home: HomePage,
+        news: NewsPage,
+        login: LoginPage,
+        profile: ProfilePage
     }
-  ) {
-    useEffect(()=>{
-      getData();
-      getLocalvalue();
-    },[]);
-    
 
-  return (
-    <>
-    <GlobalStyle />
-
-    <Header />
-      <Switch>
-        <Route path='/' exact render={props => <Content {...props}/>} />
-          {namesTab.map(name =>(
-            <Route 
-              key={name}
-              path={`/${name}`}
-              render={props => <Content {...props} />}
-            />
-          ))}
-        <Route render={() => <Content title={notFound} />} />
-      </Switch>
+    return (
+        <> < GlobalStyle /> <Header/>
+        <Switch>
+            <Route
+                path='/'
+                exact="exact"
+                render={props => <Base {...{...props, Children:HomePage }}/>
+                }
+            /> {
+                namesTab.map(name => (
+                    <Route
+                        key={name}
+                        path={`/${name}`}
+                        render={props => <Base {...{...props, Children:pages[name] }}/>
+                        }
+                    />
+                ))
+            }
+            <Route render={() => <Base title={notFound}/>}/>
+        </Switch>
     </>
-  );
+    );
 }
 
-const STP = state => ({
-  namesTab: state.titles,
-  notFound: state.notFound,
-  currentPage: state.currentPage
-});
+const STP = state => (
+    {namesTab: state.titles, notFound: state.notFound, currentPage: state.currentPage}
+);
 
 const DTP = dispatch => ({
-  getData: () => dispatch(getNews()),
-  getLocalvalue: () =>dispatch( getStatusAutorization())
+    getData: () => dispatch(getNews()),
+    getLocalvalue: () => dispatch(getStatusAutorization())
 });
 
-export default connect(
-  STP,
-  DTP,
-)(App);
-
+export default connect(STP, DTP,)(App);

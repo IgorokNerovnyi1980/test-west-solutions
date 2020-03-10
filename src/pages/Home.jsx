@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variables } from '../variables';
-import { connect } from 'react-redux';
+import {variables} from '../variables';
+import {connect} from 'react-redux';
 //component
 import Article from '../components/Article/ArticleVertical'
 
@@ -12,7 +12,7 @@ const Wrapper = styled.div `
     align-items:center;
 `;
 
-const Text = styled.p`
+const Text = styled.p `
     width:90%;
     max-width:1300px;
     min-height:14vh;
@@ -30,7 +30,7 @@ const Text = styled.p`
     
 `;
 
-const Box = styled.div`
+const Box = styled.div `
     width:92%;
     max-width:1300px;
     min-height: 80vh;
@@ -44,7 +44,7 @@ const Box = styled.div`
     }
 `;
 
-const Item = styled.div`
+const Item = styled.div `
     width:33%;
     @media (max-width: ${variables.mediaW_1}) {
         width:95%;
@@ -55,40 +55,38 @@ const Item = styled.div`
     }
 `;
 
-const HomePage = (
-    {
-        greeting = 'Hi!',
-        individualGreeting = 'Hi admin',
-        isAutorization = false,
-        news = []
-    }) => {
-        
+const HomePage = ({
+    greeting = 'Hi!',
+    individualGreeting = 'Hi admin',
+    isAutorization = false,
+    news = []
+}) => {
+
     return (
         <Wrapper>
             <Text>
-                { isAutorization ? individualGreeting : greeting }
+                {
+                    isAutorization
+                        ? individualGreeting
+                        : greeting
+                }
             </Text>
             <Box>
-                {news && news.map(item =>(
-                    <Item key={item.title}>
-                        <Article {...{...item,source:item.source.name }} />
-                    </Item>
-                ))}
+                {
+                    news && news.map(item => (
+                        <Item key={item.title}>
+                            <Article {...{...item,source:item.source.name }}/>
+                        </Item>
+                    ))
+                }
             </Box>
 
-            
         </Wrapper>
     )
 };
 
-const STP = state => ({
-    news: state.news,
-    greeting: state.greeting,
-    individualGreeting: state.individualGreeting,
-    isAutorization: state.isAutorization
-  });
-  
-  export default connect(
-    STP,
-    null,
-  )(HomePage);
+const STP = state => (
+    {news: state.news, greeting: state.greeting, individualGreeting: state.individualGreeting, isAutorization: state.isAutorization}
+);
+
+export default connect(STP, null,)(HomePage);

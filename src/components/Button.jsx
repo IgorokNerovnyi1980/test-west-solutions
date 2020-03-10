@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variables } from '../variables';
+import {variables} from '../variables';
 
-
-const Wrapper = styled.button`
+const Wrapper = styled.button `
     outline:none;
     border:none;
     min-width:70px;
@@ -15,7 +14,7 @@ const Wrapper = styled.button`
     cursor: pointer;
     transition:0.2s;
     :hover{
-       color:${ variables.hoverClr };
+       color:${variables.hoverClr};
     }
     :active{
         transform:translateY(2px);
@@ -23,33 +22,25 @@ const Wrapper = styled.button`
     :disabled{
         background-color: unset;
         border: 1px solid  ${variables.secondaryBG};
-        color:${ variables.hoverClr };
+        color:${variables.hoverClr};
         cursor:default;
     }
 
 `;
 
-const Button = (
-        {
-            text = 'default',
-            type = 'button',
-            disabled = false,
-            fnClick = () => { },
-            fnChange = () => { },
-        }
-    ) => {
-        return(
-            <Wrapper 
-                type={type}
-                onClick={fnClick}
-                onChange={fnChange}
-                disabled={disabled}
-            >
-                {text}
-            </Wrapper>
-        )
+const Button = ({
+    text = 'default',
+    type = 'button',
+    disabled = false,
+    fnClick = () => {},
+    fnChange = () => {}
+}) => {
+    return (
+        <Wrapper type={type} onClick={fnClick} onChange={fnChange} disabled={disabled}>
+            {text}
+        </Wrapper>
+    )
 
-    }
+}
 
-  
-  export default Button;
+export default Button;

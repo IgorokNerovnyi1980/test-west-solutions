@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variables } from '../variables';
-import { connect } from 'react-redux';
+import {variables} from '../variables';
+import {connect} from 'react-redux';
 //component
 import Article from '../components/Article'
 
@@ -12,7 +12,7 @@ const Wrapper = styled.div `
     align-items:center;
 `;
 
-const Filters = styled.div`
+const Filters = styled.div `
     width:90%;
     max-width:1300px;
     min-height:14vh;
@@ -28,7 +28,7 @@ const Filters = styled.div`
     
 `;
 
-const Box = styled.div`
+const Box = styled.div `
     min-height: 80vh;
     display:flex;
     flex-wrap:wrap;
@@ -36,32 +36,30 @@ const Box = styled.div`
     align-items:center;
 `;
 
-const NewsPage = (
-    {
-        isAutorization = false,
-        news = [],
-    }) => {
+const NewsPage = ({
+    isAutorization = false,
+    news = []
+}) => {
 
     return (
         <Wrapper>
-             {isAutorization && <Filters><p>Your filters</p></Filters>}
+            {
+                isAutorization && <Filters>
+                        <p>Your filters</p>
+                    </Filters>
+            }
             <Box>
-                {news && news.map(item =>(
-                    <Article key={item.title} data={item} source={item.source.name}/>
-                    
-                ))}
+                {
+                    news && news.map(
+                        item => (<Article key={item.title} data={item} source={item.source.name}/>)
+                    )
+                }
             </Box>
         </Wrapper>
-        
+
     )
 };
 
-const STP = state => ({
-    news: state.news,
-    isAutorization: state.isAutorization
-  });
-  
-  export default connect(
-    STP,
-    null,
-  )(NewsPage);
+const STP = state => ({news: state.news, isAutorization: state.isAutorization});
+
+export default connect(STP, null,)(NewsPage);
