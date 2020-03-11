@@ -44,7 +44,7 @@ const LoginPage = ({
         login: '',
         password: ''
     }
-
+    const [isNotValid, setIsNotValid] = useState(false);
     const [values, setValues] = useState(inputsValue);
 
     const handleChangeInputValue = e => {
@@ -56,36 +56,43 @@ const LoginPage = ({
 
     const handleSubmit = e => {
         e.preventDefault();
-        const {login, password} = profile;
-        if (values.login === login || values.password === password) 
+        const {name, password} = profile;
+        if (values.login === name && values.password === password) {
             changeStatusAutorization(true);
-
+        } else {
+            setIsNotValid(true);
         }
-    
+
+    };
+
     return (
         <Wrapper>
             {
                 isAutorization
                     ? <Redirect to='/profile'/>
                     : <Box >
-                            <form onSubmit={handleSubmit}>
-                                <Input
-                                    type='text'
-                                    name='login'
-                                    value={values.login}
-                                    placeholder='enter login'
-                                    fnChange={handleChangeInputValue}/>
-                                <Input
-                                    type='password'
-                                    name='password'
-                                    value={values.password}
-                                    placeholder='enter password'
-                                    fnChange={handleChangeInputValue}/>
-                                <Button
-                                    type='submit'
-                                    text='Sign in'
-                                    disabled={values.password === '' || values.login === ''}/>
-                            </form>
+                            {
+                                isNotValid
+                                    ? <h3>Login or paswword wron</h3>
+                                    : <form onSubmit={handleSubmit}>
+                                            <Input
+                                                type='text'
+                                                name='login'
+                                                value={values.login}
+                                                placeholder='enter login'
+                                                fnChange={handleChangeInputValue}/>
+                                            <Input
+                                                type='password'
+                                                name='password'
+                                                value={values.password}
+                                                placeholder='enter password'
+                                                fnChange={handleChangeInputValue}/>
+                                            <Button
+                                                type='submit'
+                                                text='Sign in'
+                                                disabled={values.password === '' || values.login === ''}/>
+                                        </form>
+                            }
                         </Box>
             }
         </Wrapper>
